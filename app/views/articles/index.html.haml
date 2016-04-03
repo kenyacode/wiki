@@ -1,9 +1,9 @@
-- @articles.each do |a|
-	%h2= a.title
+- @articles.each do |article|
+	%h2= link_to article.title, article
 	%p
 		Published at
-		= a.created_at.strftime('%b %d, %Y')
-	%p= truncate(a.content, length: 200)
+		= article.created_at.strftime('%b %d, %Y')
+	%p= truncate(article.content, length: 200)
 
 - if user_signed_in?
 	= link_to "New Article", new_article_path
